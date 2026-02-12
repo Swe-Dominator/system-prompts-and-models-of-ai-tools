@@ -1,0 +1,22 @@
+name: Sync Upstream
+on:
+  schedule:
+    - cron: '0 8 * * *'  # Dagligen kl 8 UTC
+  workflow_dispatch:     # Manuellt trigger också
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        token: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Sync upstream
+      uses: aormsby/Fork-Sync-With-Upstream@v3.0
+      with:
+        upstream_sync_repo: x1xhlol/system-prompts-and-models-of-ai-tools
+        upstream_sync_branch: main
+        target_sync_branch: main
+        target_repo_token: ${{ secrets.GITHUB_TOKEN }}
