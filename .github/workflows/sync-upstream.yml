@@ -14,7 +14,7 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Sync upstream
-      uses: aormsby/Fork-Sync-With-Upstream@v3.0
+      uses: aormsby/Fork-Sync-With-Upstream-action@v3.4.1
       with:
         upstream_sync_repo: x1xhlol/system-prompts-and-models-of-ai-tools
         upstream_sync_branch: main
